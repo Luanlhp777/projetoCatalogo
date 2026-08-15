@@ -7,22 +7,13 @@ Fecha 19 de agosto de 2026 às 23:59
 Instruções
 Trabalho em dupla ou individual
 
-
-
 Nesta atividade vocês deverão continuar o Projeto Integrador — Catálogo de Produtos, desenvolvendo novas funcionalidades no Front-end e no Back-end.
 
 Antes de começar
 Leia o artigo e revise o projeto desenvolvido nas aulas:
 
 
-
-
-
 https://desvendandoocodigo.com.br/?p=2315
-
-
-
-
 
 
 O artigo contém as explicações do Front-end com React, do Back-end com Node.js e Express, as aulas em vídeo e o código utilizado como referência, além das aulas praticadas na sala de aula.
@@ -38,22 +29,19 @@ Desenvolvimento de Sistemas I: Back-end com Node.js e Express;
 
 Integração: comunicação entre Front-end e Back-end através da API REST.
 
- Evolução do Front-end
+Evolução do Front-end
+
 1. Contador de produtos
 Exibir a quantidade de produtos cadastrados.
-
 Atualizar o contador automaticamente quando a lista mudar.
 
 2. Validação do formulário
 Não permitir cadastro sem nome.
-
 Não permitir preço igual ou menor que zero.
-
 Exibir uma mensagem adequada ao usuário.
 
 3. Busca de produtos
 Criar um campo de busca.
-
 Filtrar os produtos pelo nome.
 
 4. Footer e CSS

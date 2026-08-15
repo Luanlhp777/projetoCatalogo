@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
+import "./App.css";
 import Header from "./components/Header";
 import FormProduto from "./components/FormProduto";
 import ListaProdutos from "./components/ListaProdutos";
+import Footer from "./components/Footer";
 
 function App() {
   const [produtos, setProdutos] = useState([]);
   const [mensagem, setMensagem] = useState("");
+  const [busca, setBusca] = useState(""); // Cria estado de busca
 
   // Busca os produtos quando a aplicação é carregada.
   async function carregarProdutos() {
@@ -50,6 +53,10 @@ function App() {
     }
   }
 
+  const produtosFiltrados = produtos.filter((produto) =>
+  produto.nome.toLowerCase().includes(busca.toLowerCase())
+  );
+
   return (
     <>
       <Header />
@@ -59,12 +66,27 @@ function App() {
 
         {mensagem && <p className="mensagem">{mensagem}</p>}
 
+        {/* CONTADOR DE PRODUTOS */}
         <p className="contador-produtos">
-          Produtos cadastrados: <strong>{produtos.length}</strong>
+          Produtos cadastrados: <strong>{produtos.length}</strong> 
         </p>
 
-        <ListaProdutos produtos={produtos} />
+        {/* Campo de busca */}
+        <div className="busca">
+          <label htmlFor="busca">Buscar produto</label>
+
+          <input
+            id="busca"
+            type="text"
+            placeholder="Digite o nome do produto..."
+            value={busca}
+            onChange={(evento) => setBusca(evento.target.value)}
+          />
+        </div>
+
+        <ListaProdutos produtos={produtosFiltrados} />
       </main>
+      <Footer />
     </>
   );
 }

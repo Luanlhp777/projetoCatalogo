@@ -4,13 +4,23 @@ function FormProduto({ aoCadastrar }) {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [preco, setPreco] = useState("");
+  const [erro, setErro] = useState(""); // Erro para validar produto
 
   function enviarFormulario(evento) {
     evento.preventDefault();
 
-    if (!nome.trim() || !preco) {
+    // Erro para validar produto
+    if (!nome.trim()) {
+      setErro("Informe o nome do produto.");
       return;
     }
+
+    if (!preco || Number(preco) <= 0) {
+      setErro("O preço deve ser maior que zero.");
+      return;
+    }
+
+    setErro("");
 
     aoCadastrar({
       nome: nome.trim(),
@@ -51,13 +61,16 @@ function FormProduto({ aoCadastrar }) {
         Preço
         <input
           type="number"
-          min="0"
+          min="0.01"
           step="0.01"
           value={preco}
           onChange={(evento) => setPreco(evento.target.value)}
           placeholder="0,00"
         />
       </label>
+
+      {/* Erro para validar produto */}
+      {erro && <p className="mensagem erro">{erro}</p>}
 
       <button type="submit">Cadastrar produto</button>
     </form>
