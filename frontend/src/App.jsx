@@ -59,6 +59,10 @@ function App() {
 
         {mensagem && <p className="mensagem">{mensagem}</p>}
 
+        <p className="contador-produtos">
+          Produtos cadastrados: <strong>{produtos.length}</strong>
+        </p>
+
         <ListaProdutos produtos={produtos} />
       </main>
     </>
