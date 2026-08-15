@@ -1,16 +1,14 @@
 import { useState } from "react";
 
-export default function FormProduto({ aoCadastrar }) {
-
+function FormProduto({ aoCadastrar }) {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [preco, setPreco] = useState("");
 
   function enviarFormulario(evento) {
-
     evento.preventDefault();
 
-    if(!nome.trim() || !preco){
+    if (!nome.trim() || !preco) {
       return;
     }
 
@@ -22,47 +20,48 @@ export default function FormProduto({ aoCadastrar }) {
 
     setNome("");
     setDescricao("");
-    setPreco("");    
+    setPreco("");
   }
 
-	return(
-    <form className="formulario" onSubmit=
-    {enviarFormulario}>
-      <h2>Novo Produto</h2>
+  return (
+    <form className="formulario" onSubmit={enviarFormulario}>
+      <h2>Novo produto</h2>
 
       <label>
         Nome
         <input
-        type="text"
-        value={nome}
-        onChange={(evento) => setNome(evento.target.value)}
-        placeholder="Ex.: Teclado"
+          type="text"
+          value={nome}
+          onChange={(evento) => setNome(evento.target.value)}
+          placeholder="Ex.: Teclado"
         />
       </label>
 
       <label>
-        Descricao
+        Descrição
         <input
-        type="text"
-        value={descricao}
-        onChange={(evento) => setDescricao(evento.target.value)}
-        placeholder="Descricao do produto"
+          type="text"
+          value={descricao}
+          onChange={(evento) => setDescricao(evento.target.value)}
+          placeholder="Descrição do produto"
         />
       </label>
 
       <label>
-        Preco
+        Preço
         <input
-        type="number"
-        min="0"
-        step="0.01"
-        value={preco}
-        onChange={(evento) => setPreco(evento.target.value)}
-        placeholder="0,00"
+          type="number"
+          min="0"
+          step="0.01"
+          value={preco}
+          onChange={(evento) => setPreco(evento.target.value)}
+          placeholder="0,00"
         />
       </label>
 
       <button type="submit">Cadastrar produto</button>
     </form>
-	);
+  );
 }
+
+export default FormProduto;
